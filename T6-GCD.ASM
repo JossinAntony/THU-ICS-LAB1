@@ -17,8 +17,7 @@ EXIT:
 	POP DL
 	POP AL
 
-
-	SUB AL,30
+	CALL 90
 	MOV [03],AL
 	MOV BL,[04]
 	MOV CL,[05]
@@ -32,6 +31,17 @@ EXIT:
 SKPINCRMNT:
 	PUSH DL
 	RET
-	
+;------------------
+	ORG 90
+
+	CMP AL,39
+	JNS A_F_BLOCK
+	SUB AL,30
+	JMP EXITNUMCALC
+A_F_BLOCK:
+	SUB AL,57
+EXITNUMCALC:
+	RET	
+;-------------------	
 END:
 	END
