@@ -1,32 +1,31 @@
-	CLO
-	JMP START
-	DB 0
-	DB 0
+	CLO			;close all peripheral devices
+	JMP START		;jump to start 
 
 START:
-	MOV AL,1A
+	MOV AL,1A		;Move the input numbers whose modulo is to be found to registers AL and BL
 	MOV BL,9
 	MOV CL,C0
-	PUSH AL
+	PUSH AL			;push parametr values to stack
 	PUSH BL
 
-	CALL 30
+	CALL 30			;call subroutine at 30 which processes the modulo function
 
-	POP BL
+	POP BL			;extract results from stack
 	POP AL
 
-	ADD AL,30
-	MOV [CL],AL
+	ADD AL,30		;convert the result to equivalent ascii code	
+	MOV [CL],AL		;move the result to VDU address for display
 
 	ORG 30
-	POP DL
+	POP DL			;extract parameter values from stack
 	POP BL
 	POP AL
-	MOD AL,BL
-	PUSH AL
+	MOD AL,BL		;find the modulo
+	PUSH AL			;push the results back to stack
 	PUSH BL
 	PUSH DL
-	RET
+	RET			;return to the main procedure
 	
 	
 	END
+
