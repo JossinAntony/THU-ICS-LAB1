@@ -1,3 +1,7 @@
+;inputs range: a: 0 to 7f
+
+
+;---------
 	CLO		;close all peripheral devices
 	JMP START	;jump to start 
 	DB 0		;reserve memory spaces to store the input numbers and a counter which will track the number of inputs (limited to 2 by design)
@@ -44,10 +48,6 @@ REPGCD:
 			;following are mathematical operations to properly loop the GCD program
 	PUSH AL		; = r
 	PUSH BL		; = b
-	POP DL		; = b
-	POP CL		; = r
-	PUSH CL		; = r
-	PUSH DL		; = b
 	POP AL		; = b
 	POP BL		; = r
 	JMP REPGCD	;loop the program
