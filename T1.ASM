@@ -1,3 +1,9 @@
+;TASK-1
+;REPORT:
+;The input value is compared with 5. If the value is less than 5, increment
+;the value and dispaly it on the VDU. Else, display the value as such.
+
+;-----------------------------------------------------
 	CLO		;Close all peripheral devices
 
 	MOV AL,3	;Load the initial value 3 into the reigster AL
@@ -5,7 +11,7 @@
 	
 
 	CMP AL,5	;Condition evaluation: The numerical value in AL is compared with the value 5h as given in the question.
-	JNS DISPLAY	;If the S flag is not set (i.e, value not less than limit value), JUMP to display steps
+	JNS DISPLAY	;If the S flag is not set (i.e, value not less than limit value), JUMP to display step
 	ADD AL,1	;If the set flag is set (value < limit value), increment the numerical value in the register AL
 
 DISPLAY:
