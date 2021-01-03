@@ -1,4 +1,8 @@
-;inputs range: a: 0 to 7f
+;Write an assembler program that calculates the largest common divisor of two
+;integers a and b
+;inputs range:
+;		a: 0 to 7f
+;		b: 0 to f
 
 
 ;---------
@@ -40,7 +44,7 @@ SAVNUM:			;once user hits 'enter' key, save the value in memory
 	MOV AL,[03]	;load the saved input 1 to AL for processing
 	MOV BL,[04]	;load the saved input 2 to BL for processing
 	CMP BL,0	;if the value in BL is zero, terminate the procedure (zero error)
-	JZ ERROR
+	JZ END
 REPGCD:
 	MOD AL,BL	;calculate modulo
 	CMP AL,0	;check if AL is zero (i.e, if GCD has been reached)
