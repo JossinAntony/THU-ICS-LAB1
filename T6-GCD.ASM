@@ -22,7 +22,7 @@ GETINPUT:
 	PUSH CL		;push intermediate result (if any) to stack
 	CALL 70		;call subroutine starting at 70 (the routine to calculate the total input number)
 	POP CL		;extract result (intermediate/final) after processing
-	POP AL		;reset the Stackpointer, extract value from AL
+	;POP AL		;reset the Stackpointer, extract value from AL
 	POP BL		;reset the Stackpointer, extract value from BL
 	JMP GETINPUT	;continue acquiring the input
 
@@ -84,7 +84,7 @@ ERROR:
 	MOV BL,10	;update multiplier
 SKPINCRMNT:
 	PUSH BL		;push the values to stack for parameters return
-	PUSH AL
+	;PUSH AL
 	PUSH CL
 	PUSH DL
 	RET
